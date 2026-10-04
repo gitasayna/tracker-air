@@ -22,6 +22,9 @@ secara **realtime** antar perangkat lewat Supabase.
 > Tanpa konfigurasi Supabase, aplikasi tetap jalan dalam **mode lokal**
 > (localStorage) untuk demo — data hanya tersimpan di perangkat tersebut.
 
+> 📱 **Mau dipakai keluarga lewat link website (tanpa install apa pun)?**
+> Ikuti panduan deploy langkah-demi-langkah di **[DEPLOY.md](DEPLOY.md)**.
+
 ## Teknologi
 
 - [React 18](https://react.dev/) + [Vite 5](https://vitejs.dev/)
