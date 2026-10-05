@@ -82,6 +82,30 @@ toren-tracker/
 └── ...
 ```
 
+## Alarm & Notifikasi
+
+Saat pengisian melewati **2 jam**, aplikasi akan:
+
+- 🔊 **Membunyikan alarm** berulang (sampai ditekan "Matikan alarm").
+- 🔔 **Mengirim notifikasi HP** (jika izin notifikasi sudah diberikan) —
+  tetap muncul walau sedang membuka aplikasi lain.
+- 🔕 Menyediakan tombol **Matikan alarm** tanpa menghentikan pengisian.
+
+> Catatan: suara/notifikasi hanya berjalan selama halaman tracker tidak
+> ditutup total. Untuk keandalan terbaik, **Add to Home Screen** di HP.
+
+### Suara alarm kustom
+
+Secara default alarm memakai "beep" bawaan (tanpa file). Untuk memakai suara
+sendiri: letakkan file **`public/alarm.mp3`** (durasi pendek 2–5 detik). Jika
+file ada, aplikasi otomatis memakainya; jika tidak, memakai beep bawaan.
+
+### Mode tes alarm
+
+Menunggu 2 jam untuk menguji alarm tidak praktis. Buka aplikasi dengan
+parameter **`?test=1`** (mis. `https://tracker-air.vercel.app/?test=1`) untuk
+memperpendek batas menjadi **20 detik**. Akan muncul penanda ungu "MODE TES".
+
 ## Build
 
 ```bash

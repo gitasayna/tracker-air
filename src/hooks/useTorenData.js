@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import * as api from '../lib/api'
 import { SESSION_STATUS } from '../lib/constants'
 import { todayKey } from '../lib/time'
+import { unlockAudio, ensureNotificationPermission } from '../lib/alarm'
 
 // Hook pusat: memuat members + sessions, berlangganan perubahan realtime,
 // dan menyediakan aksi (start/stop/isi lagi/kelola anggota).
@@ -53,6 +54,10 @@ export function useTorenData() {
   const startFill = useCallback(
     async (member) => {
       if (runningSession) return
+      // Interaksi klik ini dipakai untuk "unlock" audio & minta izin notifikasi,
+      // supaya alarm bisa berbunyi otomatis saat tembus 2 jam nanti.
+      unlockAudio()
+      ensureNotificationPermission()
       await api.startSession(member.id, member.name)
       await refresh()
     },

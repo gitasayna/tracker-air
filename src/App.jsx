@@ -5,6 +5,7 @@ import History from './components/History'
 import MemberManager from './components/MemberManager'
 import SetupBanner from './components/SetupBanner'
 import { formatDateLong } from './lib/time'
+import { IS_TEST_MODE } from './lib/constants'
 
 export default function App() {
   const {
@@ -33,6 +34,12 @@ export default function App() {
           </div>
         </div>
       </header>
+
+      {IS_TEST_MODE && (
+        <div className="mb-4 rounded-xl bg-purple-100 px-4 py-2 text-center text-xs font-semibold text-purple-700">
+          🧪 MODE TES: batas alarm dipercepat jadi 20 detik
+        </div>
+      )}
 
       {usingLocal && (
         <div className="mb-5">
