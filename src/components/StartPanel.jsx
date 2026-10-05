@@ -51,7 +51,7 @@ export default function StartPanel({ members, filledToday, onPick }) {
       </div>
       <p className="mt-4 flex items-center gap-1.5 text-xs text-slate-400">
         <span aria-hidden>🔊</span>
-        Tips: jangan senyapkan HP agar alarm 2 jam terdengar.
+        Tips: jangan senyapkan HP agar alarm 1,5 jam terdengar.
       </p>
     </div>
   )

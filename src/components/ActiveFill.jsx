@@ -10,7 +10,7 @@ import {
 } from '../lib/alarm'
 
 // Panel sesi pengisian yang sedang berjalan: menampilkan siapa, jam mulai,
-// timer berjalan, dan tombol stop manual. Lewat 2 jam → peringatan + alarm.
+// timer berjalan, dan tombol stop manual. Lewat batas → peringatan + alarm.
 export default function ActiveFill({ session, onStop }) {
   const now = useNow(1000, true)
   const started = new Date(session.started_at).getTime()
@@ -22,7 +22,7 @@ export default function ActiveFill({ session, onStop }) {
   const [muted, setMuted] = useState(false)
   const firedRef = useRef(false) // agar notifikasi hanya sekali per sesi
 
-  // Saat tembus 2 jam: nyalakan alarm + kirim notifikasi (sekali).
+  // Saat tembus batas: nyalakan alarm + kirim notifikasi (sekali).
   useEffect(() => {
     if (overLimit && !muted) {
       setAlarmActive(true)
@@ -86,7 +86,7 @@ export default function ActiveFill({ session, onStop }) {
         >
           {formatDuration(elapsed)}
         </p>
-        <p className="mt-2 text-xs text-slate-400">Batas aman 02:00:00</p>
+        <p className="mt-2 text-xs text-slate-400">Batas aman 01:30:00</p>
       </div>
 
       {/* Pengingat agar alarm bisa terdengar: HP jangan di mode senyap */}
@@ -95,7 +95,7 @@ export default function ActiveFill({ session, onStop }) {
           <span aria-hidden>🔊</span>
           <p>
             Pastikan HP <strong>tidak dalam mode senyap/silent</strong> dan
-            volume aktif agar alarm terdengar saat lewat 2 jam.
+            volume aktif agar alarm terdengar saat lewat 1 jam 30 menit.
           </p>
         </div>
       )}
@@ -104,8 +104,8 @@ export default function ActiveFill({ session, onStop }) {
         <div className="mt-4 flex items-start gap-2 rounded-xl bg-red-100 p-3 text-sm text-red-700">
           <span aria-hidden>⚠️</span>
           <p>
-            Sudah lebih dari 2 jam! Toren mungkin sudah penuh — segera cek dan
-            matikan pompa. Timer tetap berjalan sampai dihentikan manual.
+            Sudah lebih dari 1 jam 30 menit! Toren mungkin sudah penuh — segera
+            cek dan matikan pompa. Timer tetap berjalan sampai dihentikan manual.
           </p>
         </div>
       )}

@@ -55,7 +55,7 @@ export function useTorenData() {
     async (member) => {
       if (runningSession) return
       // Interaksi klik ini dipakai untuk "unlock" audio & minta izin notifikasi,
-      // supaya alarm bisa berbunyi otomatis saat tembus 2 jam nanti.
+      // supaya alarm bisa berbunyi otomatis saat tembus batas waktu nanti.
       unlockAudio()
       ensureNotificationPermission()
       await api.startSession(member.id, member.name)

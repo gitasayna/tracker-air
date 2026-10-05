@@ -30,7 +30,7 @@ export default function Stats({ history }) {
           mono
         />
         <StatCard
-          label="Lewat 2 jam"
+          label="Lewat batas"
           value={stats.overLimitCount}
           danger={stats.overLimitCount > 0}
         />

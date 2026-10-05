@@ -1,4 +1,4 @@
-// Modul alarm: bunyi + notifikasi HP saat pengisian melewati batas 2 jam.
+// Modul alarm: bunyi + notifikasi HP saat pengisian melewati batas waktu.
 //
 // Suara:
 // - Jika ada file public/alarm.mp3 → pakai itu (suara kustom dari user).
@@ -154,8 +154,8 @@ export function showOverLimitNotification(memberName) {
   if (!('Notification' in window)) return
   if (Notification.permission !== 'granted') return
   try {
-    new Notification('💧 Toren sudah 2 jam!', {
-      body: `${memberName || 'Seseorang'} mengisi toren lebih dari 2 jam. Segera cek & matikan pompa.`,
+    new Notification('💧 Toren sudah 1,5 jam!', {
+      body: `${memberName || 'Seseorang'} mengisi toren lebih dari 1 jam 30 menit. Segera cek & matikan pompa.`,
       icon: '/droplet.svg',
       tag: 'toren-over-limit', // cegah numpuk
       renotify: true,

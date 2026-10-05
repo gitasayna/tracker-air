@@ -24,7 +24,7 @@ export function computeStats(history) {
     (s) => todayKey(new Date(s.started_at)) === key,
   ).length
 
-  // Jumlah "kebablasan" (lewat batas 2 jam).
+  // Jumlah "kebablasan" (lewat batas waktu).
   const overLimitCount = durations.filter((d) => d >= MAX_DURATION_MS).length
 
   // Hitung per anggota (berdasarkan member_name).
