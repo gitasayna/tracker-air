@@ -89,6 +89,17 @@ export default function ActiveFill({ session, onStop }) {
         <p className="mt-2 text-xs text-slate-400">Batas aman 02:00:00</p>
       </div>
 
+      {/* Pengingat agar alarm bisa terdengar: HP jangan di mode senyap */}
+      {!overLimit && (
+        <div className="mt-4 flex items-center gap-2 rounded-xl bg-amber-50 px-3 py-2 text-xs text-amber-700">
+          <span aria-hidden>🔊</span>
+          <p>
+            Pastikan HP <strong>tidak dalam mode senyap/silent</strong> dan
+            volume aktif agar alarm terdengar saat lewat 2 jam.
+          </p>
+        </div>
+      )}
+
       {overLimit && (
         <div className="mt-4 flex items-start gap-2 rounded-xl bg-red-100 p-3 text-sm text-red-700">
           <span aria-hidden>⚠️</span>
