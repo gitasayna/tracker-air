@@ -3,6 +3,7 @@ import ActiveFill from './components/ActiveFill'
 import StartPanel from './components/StartPanel'
 import History from './components/History'
 import MemberManager from './components/MemberManager'
+import Stats from './components/Stats'
 import SetupBanner from './components/SetupBanner'
 import { formatDateLong } from './lib/time'
 import { IS_TEST_MODE } from './lib/constants'
@@ -69,6 +70,11 @@ export default function App() {
                 onPick={actions.startFill}
               />
             )}
+          </section>
+
+          <section>
+            <h2 className="mb-3 text-lg font-bold text-slate-800">Statistik</h2>
+            <Stats history={history} />
           </section>
 
           <section>
