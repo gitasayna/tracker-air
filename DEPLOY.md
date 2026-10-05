@@ -50,10 +50,12 @@ Urutannya:
 1. Di menu kiri, klik **Project Settings** (ikon gerigi) → **API**.
 2. Catat 2 nilai ini (nanti dipakai di Vercel):
    - **Project URL** → contoh: `https://abcdefgh.supabase.co`
-   - **Project API keys → `anon` `public`** → string panjang.
+     (ambil dari **Settings → Data API**, atau Project ID + `.supabase.co`).
+   - **Publishable key** → `sb_publishable_...` (di tab "Publishable and secret
+     API keys"). Boleh juga pakai anon key lama `eyJ...` di tab "Legacy".
 
-> ⚠️ Pakai key **`anon public`**, **BUKAN** `service_role`. Yang `service_role`
-> itu rahasia dan tidak boleh dipasang di aplikasi web.
+> ⚠️ Pakai **publishable / anon**, **BUKAN** `sb_secret_...` / `service_role`.
+> Yang secret itu rahasia dan tidak boleh dipasang di aplikasi web.
 
 ---
 
@@ -74,8 +76,13 @@ lalu tambahkan **2 variabel** ini (ketik persis, huruf besar/kecil penting):
 
 | Name (Key)                | Value                                  |
 | ------------------------- | -------------------------------------- |
-| `VITE_SUPABASE_URL`       | *(Project URL dari langkah 1.3)*       |
-| `VITE_SUPABASE_ANON_KEY`  | *(anon public key dari langkah 1.3)*   |
+| `VITE_SUPABASE_URL`       | URL lengkap, mis. `https://xxxx.supabase.co` (bukan hanya Project ID) |
+| `VITE_SUPABASE_ANON_KEY`  | **publishable key** (`sb_publishable_...`) atau anon key lama (`eyJ...`) |
+
+> ⚠️ **Jangan** pakai `sb_secret_...` (secret key) — itu rahasia untuk server.
+> Gunakan **publishable** (`sb_publishable_...`) yang aman di browser.
+> `VITE_SUPABASE_URL` harus URL lengkap berawalan `https://`, **bukan** hanya
+> Project ID. Jangan sertakan tanda petik atau spasi saat menempel.
 
 > Framework akan terdeteksi otomatis sebagai **Vite** (Build Command `npm run build`,
 > Output `dist`). Tidak perlu diubah.

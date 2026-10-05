@@ -1,11 +1,12 @@
 // Lapisan data: membungkus operasi Supabase, dengan fallback ke localStore
 // saat Supabase belum dikonfigurasi (env kosong).
 
-import { supabase, isSupabaseConfigured } from './supabase'
+import { supabase } from './supabase'
 import { localStore } from './localStore'
 import { TABLES, SESSION_STATUS } from './constants'
 
-export const usingLocal = !isSupabaseConfigured
+// Pakai mode lokal jika client Supabase gagal/ tidak dibuat.
+export const usingLocal = !supabase
 
 // ---- Members ----
 
