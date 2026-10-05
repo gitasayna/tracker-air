@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
-// Kelola anggota: tambah, aktif/nonaktif, hapus.
+// Kelola anggota: lihat daftar & tambah anggota baru.
+// Tombol nonaktif/hapus sengaja dihilangkan agar tidak terpencit tak sengaja.
 export default function MemberManager({ members, actions }) {
   const [name, setName] = useState('')
   const [busy, setBusy] = useState(false)
@@ -22,7 +23,7 @@ export default function MemberManager({ members, actions }) {
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <h2 className="text-lg font-bold text-slate-800">Kelola Anggota</h2>
       <p className="mt-1 text-sm text-slate-500">
-        Tambah, aktifkan, atau hapus anggota rumah.
+        Daftar anggota rumah. Tambahkan nama baru bila perlu.
       </p>
 
       <form onSubmit={handleAdd} className="mt-4 flex gap-2">
@@ -46,43 +47,21 @@ export default function MemberManager({ members, actions }) {
         {members.map((m) => (
           <li
             key={m.id}
-            className="flex items-center justify-between gap-3 rounded-xl border border-slate-100 bg-slate-50 px-3 py-2"
+            className="flex items-center gap-2 rounded-xl border border-slate-100 bg-slate-50 px-3 py-2.5"
           >
-            <div className="flex items-center gap-2">
-              <span
-                className={`h-2.5 w-2.5 rounded-full ${
-                  m.active ? 'bg-emerald-500' : 'bg-slate-300'
-                }`}
-                aria-hidden
-              />
-              <span
-                className={`text-sm font-medium ${
-                  m.active ? 'text-slate-800' : 'text-slate-400 line-through'
-                }`}
-              >
-                {m.name}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <button
-                type="button"
-                onClick={() => actions.updateMember(m.id, { active: !m.active })}
-                className="rounded-lg px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:bg-slate-200"
-              >
-                {m.active ? 'Nonaktifkan' : 'Aktifkan'}
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  if (confirm(`Hapus anggota "${m.name}"?`)) {
-                    actions.removeMember(m.id)
-                  }
-                }}
-                className="rounded-lg px-2.5 py-1 text-xs font-medium text-red-500 transition hover:bg-red-50"
-              >
-                Hapus
-              </button>
-            </div>
+            <span
+              className={`h-2.5 w-2.5 rounded-full ${
+                m.active ? 'bg-emerald-500' : 'bg-slate-300'
+              }`}
+              aria-hidden
+            />
+            <span
+              className={`text-sm font-medium ${
+                m.active ? 'text-slate-800' : 'text-slate-400 line-through'
+              }`}
+            >
+              {m.name}
+            </span>
           </li>
         ))}
       </ul>
