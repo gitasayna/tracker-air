@@ -73,13 +73,13 @@ export default function App() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-lg font-bold text-slate-800">Statistik</h2>
-            <Stats history={history} />
+            <h2 className="mb-3 text-lg font-bold text-slate-800">Riwayat</h2>
+            <History history={history} />
           </section>
 
           <section>
-            <h2 className="mb-3 text-lg font-bold text-slate-800">Riwayat</h2>
-            <History history={history} />
+            <h2 className="mb-3 text-lg font-bold text-slate-800">Statistik</h2>
+            <Stats history={history} />
           </section>
 
           <section>
